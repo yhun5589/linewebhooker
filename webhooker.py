@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from linebot.v3.messaging import MessagingApi, Configuration, ApiClient, PushMessageRequest, TextMessage
+import os
 
 CHANNEL_ACCESS_TOKEN = os.environ.get("CHANNEL_ACCESS_TOKEN")
 app = Flask(__name__)
@@ -61,4 +62,5 @@ def callback():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
+
 
