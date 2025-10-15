@@ -2,6 +2,7 @@ import cv2
 import requests
 from io import BytesIO
 from PIL import Image
+import os
 from linebot.v3.messaging import (
     MessagingApi,
     Configuration,
@@ -12,8 +13,8 @@ from linebot.v3.messaging import (
 )
 
 # LINE credentials
-CHANNEL_ACCESS_TOKEN = '5N9weT1wrJZK0InDEIw+yieWE+CT89KfwGHKarVkCBQ9Kd602FSPtS57rh5YZ4HxU66d9l9MsmRstoAEVs4SFBEBjWFR0+2fkQzXoSBlQPvK7rAtUF425p2wAMntUT0i7mKHaoqAhZ2R2QnTZvdVmQdB04t89/1O/w1cDnyilFU='
-USER_ID = 'U62861b537edda7b2bee65f9db1620aa5'
+CHANNEL_ACCESS_TOKEN = os.environ.get("CHANNEL_ACCESS_TOKEN")
+USER_ID = os.environ.get("USER_ID")
 
 configuration = Configuration(access_token=CHANNEL_ACCESS_TOKEN)
 
@@ -90,3 +91,4 @@ if __name__ == "__main__":
     frame = cv2.imread("hq720.jpg")  # Replace with your test image
     send_msg("⚠️ Sending test image...")
     send_opencv_frame(frame)
+
