@@ -50,11 +50,11 @@ def callback():
         if text == "HELP":
             send_msg(user_id, "Here is the help info you need.")
         elif text == "SETTING":
-            send_msg(user_id, "Type FIRST_TIME_SETTING to view your user id or LINK to get the server link.")
+            send_msg(user_id, "Type FIRST_TIME_SETTING to view your user id or LINK to get setup procedure link.")
         elif text == "FIRST_TIME_SETTING":
             send_msg(user_id, f"Your user ID is: {user_id}")
         elif text == "LINK":
-            send_msg(user_id, "Here is your server link: https://yourserver.com")
+            send_msg(user_id, "for setup procedures check https://www.instagram.com/tu_robotclub/")
         else:
             send_msg(user_id, f"You said: {text}")
 
@@ -62,5 +62,6 @@ def callback():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
+
 
 
