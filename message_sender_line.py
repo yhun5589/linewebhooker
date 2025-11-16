@@ -14,12 +14,11 @@ from linebot.v3.messaging import (
 
 # LINE credentials
 CHANNEL_ACCESS_TOKEN = os.environ.get("CHANNEL_ACCESS_TOKEN")
-USER_ID = os.environ.get("USER_ID")
 
 configuration = Configuration(access_token=CHANNEL_ACCESS_TOKEN)
 
 # --- Send text message ---
-def send_msg(texttosend):
+def send_msg(USER_ID,texttosend):
     with ApiClient(configuration) as api_client:
         messaging_api = MessagingApi(api_client)
         message = TextMessage(text=texttosend)
@@ -70,7 +69,7 @@ def upload_image(frame):
 
 
 # --- Send frame as LINE image message ---
-def send_opencv_frame(frame):
+def send_opencv_frame(USER_ID,frame):
     img_url = upload_image(frame)
     if not img_url:
         print("❌ Upload failed completely")
@@ -91,4 +90,5 @@ if __name__ == "__main__":
     frame = cv2.imread("hq720.jpg")  # Replace with your test image
     send_msg("⚠️ Sending test image...")
     send_opencv_frame(frame)
+
 
